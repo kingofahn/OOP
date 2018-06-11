@@ -41,4 +41,7 @@ public class BMI {
 	public double getWeight() {
 		return weight;
 	}
+	public String toString() {
+		return String.format(" %s | %fcm | %fkg | %s",name,height,weight,result);
+	}
 }

@@ -36,10 +36,10 @@ public class Main {
 		Grade grade =null;
 		Salary salary = null;
 		Salary[] arr2 = new Salary[2];
-		Lotto lotto = null;
-		Lotto[] arr3 = new Lotto[20];
-		
+		int [][] arr3 = new int[20][6];
+		Lotto lotto = null; 
 		int count=0, count1=0,count2=0,count3=0;
+		
 		while(true) {
 			switch((Butt)JOptionPane.showInputDialog( 
 				null, // frame
@@ -107,24 +107,23 @@ public class Main {
 				JOptionPane.showMessageDialog(null,"name|dept|sal|bonus\n"+output2);
 				break;
 				
-			case INPUT_LOTTO: 
-				lotto = new Lotto();
-				lotto.setMoney(Integer.parseInt(JOptionPane.showInputDialog("Money")));
-				lotto.setBall1();
-				lotto.setBall2();
-				lotto.setBall3();
-				lotto.setBall4();
-				lotto.setBall5();
-				lotto.setBall6();
-				arr3[count3]=lotto;
-				count3++;
+			case INPUT_LOTTO:
+				lotto = new Lotto(); 
+				lotto.setPrice(Integer.parseInt(JOptionPane.showInputDialog("Price")));
+				lotto.setCount();
+				lotto.setRandoms();
 				break;
-			case OUTPUT_LOTTO: 
+				
+			case OUTPUT_LOTTO:
 				String output3 ="";
+				arr3=lotto.getRandoms();
 				for(int i=0; i<lotto.getCount(); i++) {
-					output3+=arr3[i].toString()+"\n";
+					for(int j=0; j<6; j++) {
+						output3 += arr3[i][j] +"     ";
+					}
+					output3 += "\n";
 				}
-				JOptionPane.showMessageDialog(null,output3);
+				JOptionPane.showMessageDialog(null,lotto.getPrice()+"원\n"+ output3);
 				break;
 			default : JOptionPane.showMessageDialog(null,"Error"); break;
 			}

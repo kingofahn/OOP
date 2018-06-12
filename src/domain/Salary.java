@@ -16,7 +16,6 @@ public class Salary {
 	public void setBonus(int bonus) {
 		this.bonus = bonus;
 	}
-	
 	public String getDept() {
 		return dept;
 	}

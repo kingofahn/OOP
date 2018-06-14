@@ -1,7 +1,7 @@
 package domain;
-import java.text.SimpleDateFormat;
+//import java.text.SimpleDateFormat;  // setCreateDate에서 SimpleDateFormat 사용했을 시 사용
 import java.util.Calendar;
-import java.util.Date;
+//import java.util.Date; // setCreateDate에서 SimpleDateFormat 사용했을 시 사용
 public class Account {
 	public final static String BANK_NAME = "비트뱅크";
 	public final static String ACCOUNT_TYPE = "기본통장";
@@ -32,7 +32,7 @@ public class Account {
 	}
 	public void setCreateDate() {
 		Calendar cal = Calendar.getInstance();
-    	  int nowYear = cal.get(Calendar.YEAR);
+		  int nowYear = cal.get(Calendar.YEAR);
 		  int nowMonth = cal.get(Calendar.MONTH)+1;
 		  int nowDate = cal.get(Calendar.DATE);
 		createDate=nowYear+"년"+ nowMonth+"월"+ nowDate+"일";

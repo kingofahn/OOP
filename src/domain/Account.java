@@ -1,5 +1,7 @@
 package domain;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Date;
 public class Account {
 	public final static String BANK_NAME = "비트뱅크";
 	public final static String ACCOUNT_TYPE = "기본통장";
@@ -34,6 +36,9 @@ public class Account {
 		  int nowMonth = cal.get(Calendar.MONTH)+1;
 		  int nowDate = cal.get(Calendar.DATE);
 		createDate=nowYear+"년"+ nowMonth+"월"+ nowDate+"일";
+//		Date today = new Date();
+//		SimpleDateFormat format = new SimpleDateFormat("yyyy년 MM월dd일");
+//		this.createDate = format.format(today);
 	}
 	public void setAccountNo() {
 		String result = "";

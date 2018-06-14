@@ -1,7 +1,7 @@
 package domain;
-//import java.text.SimpleDateFormat;  // setCreateDate에서 SimpleDateFormat 사용했을 시 사용
-import java.util.Calendar;
-//import java.util.Date; // setCreateDate에서 SimpleDateFormat 사용했을 시 사용
+import java.text.SimpleDateFormat;  // setCreateDate에서 SimpleDateFormat 사용했을 시 사용
+//import java.util.Calendar; // Calendar cal = Calendar.getInstance 사용했을시 사용 
+import java.util.Date; // setCreateDate에서 SimpleDateFormat 사용했을 시 사용
 public class Account {
 	public final static String BANK_NAME = "비트뱅크";
 	public final static String ACCOUNT_TYPE = "기본통장";
@@ -12,9 +12,8 @@ public class Account {
 	protected int money;
 	protected String name, uid, pass, createDate, accountType,accountNo;
 	
-	/** 통장 123-345-678 의 형태가 되도록 코딩 	
-	  	블로그에서 오늘 날짜 뽑는 로직 가져다가 쓰세요
-	 **/
+	/* 통장 123-345-678 의 형태가 되도록 코딩 	
+	 */
 
 	public void setMoney(int money) {
 		this.money = money;
@@ -32,21 +31,19 @@ public class Account {
 		this.accountType = ACCOUNT_TYPE;
 	}
 	public void setCreateDate() {
-		Calendar cal = Calendar.getInstance();
-		  int nowYear = cal.get(Calendar.YEAR);
-		  int nowMonth = cal.get(Calendar.MONTH)+1;
-		  int nowDate = cal.get(Calendar.DATE);
-		createDate=nowYear+"년"+ nowMonth+"월"+ nowDate+"일";
-//		Date today = new Date();
-//		SimpleDateFormat format = new SimpleDateFormat("yyyy년 MM월dd일");
-//		this.createDate = format.format(today);
+		Date today = new Date();
+		SimpleDateFormat format = new SimpleDateFormat("yyyy년 MM월 dd일");
+		this.createDate = format.format(today);
+//		Calendar cal = Calendar.getInstance();      		// 예전 시대 스타일의 코드이다.
+//		  int nowYear = cal.get(Calendar.YEAR);				// 예전 시대 스타일의 코드이다.
+//		  int nowMonth = cal.get(Calendar.MONTH)+1; 		// 예전 시대 스타일의 코드이다.
+//		  int nowDate = cal.get(Calendar.DATE);				// 예전 시대 스타일의 코드이다.
+//		createDate=nowYear+"년"+ nowMonth+"월"+ nowDate+"일"; // 예전 시대 스타일의 코드이다.
 	}
 	public void setAccountNo() {
 		String result = "";
 		for (int i = 0; i < 3; i++) {
-			for (int j = 0; j < 3; j++) {
-				result += String.valueOf((int) (Math.random() * 9));
-			}
+				result += String.format("%03d",((int) (Math.random() * 999)+1)); // "%03d" 3자리로하는데 1자리~2자리일경우 0으로 채워라
 				result +=(i==2)?"":"-";
 		}
 		this.accountNo = result;

@@ -67,7 +67,7 @@ public class AccountMain {
 				mAccount.setUid(JOptionPane.showInputDialog("Uid?"));
 				mAccount.setPass(JOptionPane.showInputDialog("Pass?"));
 				mAccount.setMoney(Integer.parseInt(JOptionPane.showInputDialog("money?")));
-				JOptionPane.showMessageDialog(null, account.toString());
+				JOptionPane.showMessageDialog(null, mAccount.toString());
 				break;
 			}
 		}

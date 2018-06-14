@@ -15,12 +15,12 @@ public class IPhone extends CellPhone {
 		super.setPortable(true);
 		setData();
 		return String.format("%s 에게 %s 번호로  %s %s 제품을  사용해서 %s한 상태로  %s라고   %s",
-				super.getName(),
-				super.getPhoneNum(),
+				getName(),
+				getPhoneNum(),
 				BRAND,
 				KIND,
-				super.getMove(),
-				super.getCall(),
+				getMove(),
+				getCall(),
 				getData());
 	}
 }

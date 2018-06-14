@@ -22,11 +22,11 @@ public class CellPhone extends Phone {
 	public String toString() {
 		setPortable(true);
 		return String.format("%s 에게 %s 번호로  %s %s 제품  %s를 사용해서  %s라고 통화했다.",
-				super.getName(),
-				super.getPhoneNum(),
+				getName(),
+				getPhoneNum(),
 				move,
 				BRAND,KIND,
-				super.getCall());
+				getCall());
 		// 홍길동, 010-1234-5678,삼성,집전화기,2시에만나
 	}
 	

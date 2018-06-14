@@ -18,14 +18,14 @@ public class GalaxyPhone extends IPhone {
 		setSize();
 		setData();
 		return String.format("%s 에게 %s 번호로   %s %s %s 제품을  사용해서 %s한 상태로  %s라고   %s",
-				super.getName(),
-				super.getPhoneNum(),
+				getName(),
+				getPhoneNum(),
 				BRAND,
 				size,
 				KIND,
-				super.getMove(),
-				super.getCall(),
-				super.getData()
+				getMove(),
+				getCall(),
+				getData()
 				);
 		}
 }

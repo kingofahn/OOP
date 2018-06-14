@@ -2,6 +2,8 @@ package domain;
 import java.text.SimpleDateFormat;  // setCreateDate에서 SimpleDateFormat 사용했을 시 사용
 //import java.util.Calendar; // Calendar cal = Calendar.getInstance 사용했을시 사용 
 import java.util.Date; // setCreateDate에서 SimpleDateFormat 사용했을 시 사용
+
+import javax.swing.JOptionPane;
 public class Account {
 	public final static String BANK_NAME = "비트뱅크";
 	public final static String ACCOUNT_TYPE = "기본통장";
@@ -14,31 +16,20 @@ public class Account {
 	
 	/* 통장 123-345-678 의 형태가 되도록 코딩 	
 	 */
-
-	public void setMoney(int money) {
-		this.money = money;
-	}
-	public void setName(String name) {
+	public Account(String name, String uid, String pass) {
+		setAccountType(ACCOUNT_TYPE);
+		setAccountNo();
+		this.createDate = 
+				new SimpleDateFormat("yyyy년 MM월 dd일").format(new Date());
 		this.name = name;
-	}
-	public void setUid(String uid) {
 		this.uid = uid;
+		this.pass = pass;
 	}
 	public void setPass(String pass) {
 		this.pass = pass;
 	}
-	public void setAccountType() {
-		this.accountType = ACCOUNT_TYPE;
-	}
-	public void setCreateDate() {
-		Date today = new Date();
-		SimpleDateFormat format = new SimpleDateFormat("yyyy년 MM월 dd일");
-		this.createDate = format.format(today);
-//		Calendar cal = Calendar.getInstance();      		// 예전 시대 스타일의 코드이다.
-//		  int nowYear = cal.get(Calendar.YEAR);				// 예전 시대 스타일의 코드이다.
-//		  int nowMonth = cal.get(Calendar.MONTH)+1; 		// 예전 시대 스타일의 코드이다.
-//		  int nowDate = cal.get(Calendar.DATE);				// 예전 시대 스타일의 코드이다.
-//		createDate=nowYear+"년"+ nowMonth+"월"+ nowDate+"일"; // 예전 시대 스타일의 코드이다.
+	public void setAccountType(String accountType) {
+		this.accountType = accountType;
 	}
 	public void setAccountNo() {
 		String result = "";
@@ -48,9 +39,14 @@ public class Account {
 		}
 		this.accountNo = result;
 	}
-	public int getMoney() {
-		return money;
+	public void setMoney(int money) {
+		this.money += money;
 	}
+	
+	public void setWithdraw(int money) {
+		this.money-=money;
+	}
+	
 	public String getName() {
 		return name;
 	}
@@ -63,11 +59,17 @@ public class Account {
 	public String getAccountType() {
 		return accountType;
 	}
+	public String getAccountNo() {
+		return accountNo;
+	}
 	public String getCreateDate() {
 		return createDate;
 	}
-	public String getAccountNo() {
-		return accountNo;
+	public int getMoney() {
+		return money;
+	}
+	public int getWithdraw() {
+		return money;
 	}
 	public String toString() {
 		return String.format("%s\n" 

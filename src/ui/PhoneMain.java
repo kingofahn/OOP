@@ -14,10 +14,7 @@ public class PhoneMain {
 				PhoneButt.IPHONE,
 				PhoneButt.GALAXYPHONE
 				};
-		Phone phone = null;
-		CellPhone cp = null;
-		IPhone iphone = null;
-		GalaxyPhone galaxy = null;
+		Phone phone = null;    // 다형성  
 		while(true) {
 			switch((PhoneButt)JOptionPane.showInputDialog( 
 				null, // frame
@@ -38,25 +35,25 @@ public class PhoneMain {
 				JOptionPane.showMessageDialog(null, phone.toString());
 				break;
 			case CELLPHONE :
-				cp = new CellPhone(); 
-				cp.setName(JOptionPane.showInputDialog("name?"));
-				cp.setPhoneNum(JOptionPane.showInputDialog("phoneNum?"));
-				cp.setCall(JOptionPane.showInputDialog("call?"));
-				JOptionPane.showMessageDialog(null, cp.toString());
+				phone = new CellPhone(); 
+				phone.setName(JOptionPane.showInputDialog("name?"));
+				phone.setPhoneNum(JOptionPane.showInputDialog("phoneNum?"));
+				phone.setCall(JOptionPane.showInputDialog("call?"));
+				JOptionPane.showMessageDialog(null, phone.toString());
 				break;
 			case IPHONE :
-				iphone = new IPhone(); 
-				iphone.setName(JOptionPane.showInputDialog("name?"));
-				iphone.setPhoneNum(JOptionPane.showInputDialog("phoneNum?"));
-				iphone.setCall(JOptionPane.showInputDialog("Message?"));
-				JOptionPane.showMessageDialog(null, iphone.toString());
+				phone = new IPhone(); 
+				phone.setName(JOptionPane.showInputDialog("name?"));
+				phone.setPhoneNum(JOptionPane.showInputDialog("phoneNum?"));
+				phone.setCall(JOptionPane.showInputDialog("Message?"));
+				JOptionPane.showMessageDialog(null, phone.toString());
 				break;
 			case GALAXYPHONE :
-				galaxy = new GalaxyPhone(); 
-				galaxy.setName(JOptionPane.showInputDialog("name?"));
-				galaxy.setPhoneNum(JOptionPane.showInputDialog("phoneNum?"));
-				galaxy.setCall(JOptionPane.showInputDialog("Message?"));
-				JOptionPane.showMessageDialog(null, galaxy.toString());
+				phone = new GalaxyPhone(); 
+				phone.setName(JOptionPane.showInputDialog("name?"));
+				phone.setPhoneNum(JOptionPane.showInputDialog("phoneNum?"));
+				phone.setCall(JOptionPane.showInputDialog("Message?"));
+				JOptionPane.showMessageDialog(null, phone.toString());
 				break;
 			default : JOptionPane.showMessageDialog(null, "error"); break; 
 

@@ -23,7 +23,9 @@ import domain.*;
 enum AccountButt{
 	EXIT,
 	OPEN_ACCOUNT,
-	OPEN_MINUSACCOUNT
+	OPEN_MINUSACCOUNT,
+	DEPOSIT,
+	WITHDRAW
 }
 
 public class AccountMain {
@@ -33,7 +35,9 @@ public class AccountMain {
 		AccountButt[] butt= {
 				AccountButt.EXIT,
 				AccountButt.OPEN_ACCOUNT,
-				AccountButt.OPEN_MINUSACCOUNT
+				AccountButt.OPEN_MINUSACCOUNT,
+				AccountButt.DEPOSIT,
+				AccountButt.WITHDRAW
 				};
 		while(true) {
 			switch((AccountButt)JOptionPane.showInputDialog( 
@@ -48,28 +52,51 @@ public class AccountMain {
 			case EXIT :
 				return;
 			case OPEN_ACCOUNT :
-				account = new Account(); 
-				account.setAccountNo();
-				account.setCreateDate();
-				account.setAccountType();
-				account.setName(JOptionPane.showInputDialog("Name?"));
-				account.setUid(JOptionPane.showInputDialog("Uid?"));
-				account.setPass(JOptionPane.showInputDialog("Pass?"));
+				account = new Account(
+						JOptionPane.showInputDialog("Name?"),
+						JOptionPane.showInputDialog("Uid?"),
+						JOptionPane.showInputDialog("Pass?")
+						); 
 				account.setMoney(Integer.parseInt(JOptionPane.showInputDialog("money?")));
 				JOptionPane.showMessageDialog(null, account.toString());
 				break;
 			case OPEN_MINUSACCOUNT :
-				mAccount = new MinusAccount(); 
-				mAccount.setAccountNo();
-				mAccount.setCreateDate();
-				mAccount.setAccountType();
-				mAccount.setName(JOptionPane.showInputDialog("Name?"));
-				mAccount.setUid(JOptionPane.showInputDialog("Uid?"));
-				mAccount.setPass(JOptionPane.showInputDialog("Pass?"));
-				mAccount.setMoney(Integer.parseInt(JOptionPane.showInputDialog("money?")));
-				JOptionPane.showMessageDialog(null, mAccount.toString());
+				account = new MinusAccount(
+						JOptionPane.showInputDialog("Name?"),
+						JOptionPane.showInputDialog("Uid?"),
+						JOptionPane.showInputDialog("Pass?")
+						); 
+				account.setMoney(Integer.parseInt(JOptionPane.showInputDialog("loan?")));
+				JOptionPane.showMessageDialog(null, account.toString());
+				break;
+			case WITHDRAW :
+				int money =Integer.parseInt(JOptionPane.showInputDialog("WITHDRAW?"));
+				if(account.getMoney()<0) {
+					if(account.getMoney()+money>0) {
+						JOptionPane.showMessageDialog(null,account.WITHDRAW_FAIL+"\n"+"잔액"+account.getMoney()+"원");
+					} else {
+						account.setWithdraw(-money);
+						JOptionPane.showMessageDialog(null,account.WITHDRAW_SUCCESS+"\n"+"잔액"+account.getWithdraw()+"원");
+					}
+				} else {
+					if(account.getMoney()-money<0) {
+						JOptionPane.showMessageDialog(null,account.WITHDRAW_FAIL+"\n"+"잔액"+account.getMoney()+"원");
+					} else {
+						account.setWithdraw(money);
+						JOptionPane.showMessageDialog(null,account.WITHDRAW_SUCCESS+"\n"+"잔액"+account.getWithdraw()+"원");
+					}
+				}
+				break;
+			case DEPOSIT :
+				money =Integer.parseInt(JOptionPane.showInputDialog("DEPOSIT?"));
+					if(money<0) {
+						JOptionPane.showMessageDialog(null,account.DEPOSIT_FAIL+"\n"+"잔액"+account.getMoney()+"원");
+					} else {
+						account.setMoney(money);
+						JOptionPane.showMessageDialog(null,account.DEPOSIT_SUCCESS+"\n"+"잔액"+account.getMoney()+"원");
+					}
+				}
 				break;
 			}
-		}
 	}
 }

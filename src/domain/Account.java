@@ -12,8 +12,9 @@ public class Account {
 	protected int money;
 	protected String name, uid, pass, createDate, accountType,accountNo;
 	
-	// 통장 123-345-678 의 형태가 되도록 코딩
-	// 블로그에서 오늘 날짜 뽑는 로직 가져다가 쓰세요
+	/* 통장 123-345-678 의 형태가 되도록 코딩 	
+	 * 블로그에서 오늘 날짜 뽑는 로직 가져다가 쓰세요
+	 */
 
 	public void setMoney(int money) {
 		this.money = money;

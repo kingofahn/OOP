@@ -9,7 +9,10 @@ public class Payment {
 		String[] arr = input.split("/");
 		name = arr[0].substring(0,1);
 		sal = Integer.parseInt(arr[1]);
-		jobName = name+"인턴";
+		jobName = name+DEPT.substring(0,2);
+	}
+	public int getSal() {
+		return sal;
 	}
 	public String getName() {
 		return name;

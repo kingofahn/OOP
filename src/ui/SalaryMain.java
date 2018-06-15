@@ -26,17 +26,17 @@ public class SalaryMain {
 				return;
 			case INTERSHIP :
 				JOptionPane.showMessageDialog(
-						null,new Payment(JOptionPane.showInputDialog("Name/Salary?"))
+						null,new Payment(JOptionPane.showInputDialog("Name/Salary"))
 						.toString());
 				break;
 			case STAFF :
 				JOptionPane.showMessageDialog(
-						null,new StaffSalary(JOptionPane.showInputDialog("Name/Salary?"))
+						null,new StaffSalary(JOptionPane.showInputDialog("Name/Salary"))
 						.toString());
 				break;
 			case EXECUTIVE :
 				JOptionPane.showMessageDialog(
-						null,new OwnerSalary(JOptionPane.showInputDialog("Name/Salary?"))
+						null,new OwnerSalary(JOptionPane.showInputDialog("Name/Salary"))
 						.toString());
 				break;
 			default : JOptionPane.showMessageDialog(null, "error"); break; 

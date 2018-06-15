@@ -12,7 +12,7 @@ public class Account {
 	public final static String DEPOSIT_SUCCESS = "입금성공";
 	public final static String DEPOSIT_FAIL = "적합한 입력값이 아님";
 	protected int money;
-	protected String name, uid, pass, createDate, accountType,accountNo;
+	protected String name, uid, pass, createDate, accountType, accountNo;
 	
 	/* 통장 123-345-678 의 형태가 되도록 코딩 	
 	 */
@@ -32,21 +32,14 @@ public class Account {
 		this.accountType = accountType;
 	}
 	public void setAccountNo() {
-		String result = "";
-		for (int i = 0; i < 3; i++) {
-				result += String.format("%03d",((int) (Math.random() * 999)+1)); // "%03d" 3자리로하는데 1자리~2자리일경우 0으로 채워라
-				result +=(i==2)?"":"-";
-		}
-		this.accountNo = result;
+		
 	}
 	public void setMoney(int money) {
-		this.money += money;
+		this.money = money;
 	}
-	
 	public void setWithdraw(int money) {
 		this.money-=money;
 	}
-	
 	public String getName() {
 		return name;
 	}

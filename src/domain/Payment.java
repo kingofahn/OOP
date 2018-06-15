@@ -7,9 +7,13 @@ public class Payment {
 
 	public Payment(String input) {
 		String[] arr = input.split("/");
-		name = arr[0].substring(0,1);
-		sal = Integer.parseInt(arr[1]);
-		jobName = name+DEPT.substring(0,2);
+		this.name = arr[0].substring(0,1);
+		this.sal = Integer.parseInt(arr[1]);
+		this.jobName = name+DEPT.substring(0,2) ; 
+		setDept(DEPT);
+	}
+	public void setDept(String dept) {
+		this.dept =dept;
 	}
 	public int getSal() {
 		return sal;
@@ -18,12 +22,12 @@ public class Payment {
 		return name;
 	}
 	public String getDept() {
-		return DEPT;
+		return dept;
 	}
 	public String getJobName() {
 		return jobName;
 	}
 	public String toString() {
-		return String.format("%s에 %d만원 지급", jobName, sal);
+		return String.format("%s인 %s에 %d만원 지급",dept, jobName, sal);
 	}
 }

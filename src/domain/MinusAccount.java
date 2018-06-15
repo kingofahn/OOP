@@ -10,6 +10,14 @@ public class MinusAccount extends Account {
 		super(name, uid, pass); // 부모의 생성자
 		setAccountType(ACCOUNT_TYPE);
 	}
+	
+	public void setLimit(int limit) {
+		this.limit=limit;
+	}
+	public int getLimit() {
+		return limit;
+	}
+	
 	public void setMoney(int money) {
 			this.money=(-money);
 	}

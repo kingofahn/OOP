@@ -5,8 +5,9 @@ public class StaffSalary extends Payment {
 	protected  double bonus; // 10%
 	public StaffSalary(String input) {
 		super(input);
-		jobName = name+DEPT.substring(1,2);
+		jobName = name+DEPT.substring(1,3);
 		setBonus();
+		setDept(DEPT);
 	}
 	public void setBonus() {
 		bonus= sal * 0.1;
@@ -15,6 +16,6 @@ public class StaffSalary extends Payment {
 		return bonus;
 	}
 	public String toString() {
-		return String.format("%s에 %d만원 지급", jobName, (int)(sal+bonus));
+		return String.format("%s인 %s에 %d만원 지급",dept, jobName, (int)(sal+bonus));
 	}
 }
